@@ -28,7 +28,8 @@ CREATE INDEX release_format_idx_release ON release_format (release_id);
 CREATE INDEX release_track_idx_release ON release_track (release_id);
 CREATE INDEX release_track_idx_sequence ON release_track (sequence);
 CREATE INDEX release_track_idx_parent ON release_track (parent);
-CREATE INDEX release_track_idx_title ON release_track (title);
+-- Partial index for titles under 500 characters to avoid index size limits
+CREATE INDEX release_track_idx_title ON release_track (title) WHERE length(title) < 500;
 CREATE INDEX release_track_artist_idx_release ON release_track_artist (release_id);
 CREATE INDEX release_track_artist_idx_track_id ON release_track_artist (track_id);
 CREATE INDEX release_track_artist_idx_track_sequence ON release_track_artist (track_sequence);
