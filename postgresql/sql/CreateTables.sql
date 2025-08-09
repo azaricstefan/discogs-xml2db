@@ -75,7 +75,7 @@ CREATE TABLE master (
 CREATE TABLE master_artist (
     id              SERIAL,
     master_id       integer NOT NULL,
-    artist_id       integer NOT NULL,
+    artist_id       integer,
     artist_name     text,
     anv             text,
     position        integer,
@@ -127,7 +127,7 @@ CREATE TABLE release (
 CREATE TABLE release_artist (
     id              SERIAL,
     release_id      integer NOT NULL,
-    artist_id       integer NOT NULL,
+    artist_id       integer,
     artist_name     text,
     extra           integer NOT NULL,
     anv             text,
@@ -181,7 +181,7 @@ CREATE TABLE release_track_artist (
     track_id        text,
     release_id      integer NOT NULL,
     track_sequence  text,
-    artist_id       integer NOT NULL,
+    artist_id       integer,
     artist_name     text,
     extra           boolean NOT NULL,
     anv             text,
@@ -211,7 +211,7 @@ CREATE TABLE release_video (
 CREATE TABLE release_company (
     id                  SERIAL,
     release_id          integer NOT NULL,
-    company_id          integer NOT NULL,
+    company_id          integer,
     company_name        text NOT NULL,
     entity_type         text,
     entity_type_name    text,
